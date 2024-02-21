@@ -1,0 +1,162 @@
+:root {
+    --backgroundColor: #E1E1E1;
+    --blue: #0A3871;
+}
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%;
+} *, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    color: var(--blue);
+    font-size: 1.6rem;
+}
+
+/* GENERALS */
+.container {
+    background: var(--backgroundColor);
+    min-height: 100vh;
+}
+
+.container header, 
+.container main {
+    width: 100%;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.btn {
+    background-color: transparent;
+    border: 1px solid var(--blue);
+    border-radius: 1rem;
+    color: var(--blue);
+    cursor: pointer;
+    padding: 1.5rem 1.5rem;
+}
+
+/* MAIN */
+.field {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 78vh;
+    gap: 2rem;
+}
+/* .field div:not(.field-answer) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
+.field-text {
+    width: 95vw;
+    height: 50%;
+}
+.field-text textarea {
+    color: var(--blue);
+    background: transparent;
+    padding: 2rem;
+    border: none;
+    height: 100%;
+    resize: none;
+    width: 100%;
+    font-size: 25px;
+}
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.actions .btn {
+    transition: all .3s ease;
+    width: 80%;
+}
+.actions .encriptar {
+    background: var(--blue);
+    color: #FFFFFF;
+}
+.actions .encriptar:hover {
+    background-color: transparent;
+    color: var(--blue);
+}
+.actions .desencriptar:hover,
+.copy:hover {
+    color: #FFFFFF;
+    background-color: var(--blue);
+    transition: all ease-in .2s;
+}
+
+.field-answer {
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 95vw;
+}
+
+.field-answer label {
+    border: none;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1;
+    height: 100%;
+    resize: none;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    
+    .field {
+        height: 80vh;
+    }
+    .field div:not(.field-answer) {
+        width: 60vw;
+    }
+    .field-text {
+        padding: 5rem;
+        width: 90%;
+        height: 80%;
+    }
+    .field-text textarea {
+        padding: 1rem;
+    }
+    .actions {
+        flex-direction: row;
+        height: 20%;
+        gap: 3rem;
+    }
+    .actions .btn {
+        width: 45%;
+    }
+
+    .field-answer {
+        height: 95%;
+        width: 25%;
+    }
+
+    .field-answer label {
+        border: none;
+        font-size: 2.5rem;
+        height: 100%;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+        padding: 1rem;
+        text-align: center;
+    }
+} 
