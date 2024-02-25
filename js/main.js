@@ -49,7 +49,7 @@ let copy = document.querySelector('#answer')
 let encriptarBtn = document.querySelector('.encriptar')
 encriptarBtn.addEventListener('click', () => {
     if(!input?.value) {
-        alert('Ingresa una frase')
+        elementoNotificacion('Ingresa una frase', '#c02c20')
     } else {
         output.textContent = encriptar(lowerCase(input?.value))
     }
@@ -58,7 +58,7 @@ encriptarBtn.addEventListener('click', () => {
 let desencriptarBtn = document.querySelector('.desencriptar')
 desencriptarBtn.addEventListener('click', () => {
     if(!input?.value) {
-        alert('Ingresa una frase encriptada')
+        elementoNotificacion('Ingresa una frase encriptada', '#c02c20')
     } else {
         output.textContent = desencriptar(input?.value)
     }
@@ -68,14 +68,29 @@ let copyBtn = document.querySelector('.copy')
 copyBtn.addEventListener('click', async () => {
     try {
         await navigator.clipboard.writeText(copy.textContent)
-        alert('Texto copiado al portapapeles')
+        elementoNotificacion('Texto copiado al portapapeles', '#25857d')
     } catch (err) {
-        alert('Error al copiar al portapapeles')
+        elementoNotificacion('Error al copiar al portapapeles', '#c02c20')
         console.error('Error al copiar al portapapeles:', err)
     }
 })
 
-function elementoNotificacion() {
+function elementoNotificacion(mensaje, bgNotification) {
+    let body = document.querySelector('body')
     let div = document.createElement('div')
-    div.append()
+    div.style.background = bgNotification
+    div.style.color = 'white'
+    div.style.width = '300px'
+    div.style.textAlign = 'center'
+    div.style.padding = '20px'
+    div.style.borderRadius = '5px'
+    div.style.position = 'absolute'
+    div.style.top = '75px'
+    div.style.right = '150px'
+    div.textContent = mensaje
+    body.append(div)
+    setTimeout(() => {
+        div.remove()
+    }, 1500);
+    console.log(mensaje)
 }
